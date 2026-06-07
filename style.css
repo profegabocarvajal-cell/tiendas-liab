@@ -1,0 +1,684 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --color-fondo: #fdfbf7;
+    --color-barra: #f3efe7ee; 
+    --color-texto: #2c2a29;
+    --color-resaltar: #f5d6ce;
+    --color-cta: #ff7b80;
+    --color-card: #f4f3ef;
+    --color-cta-text: #000000;
+    --color-hover: #e8c5c8;
+    --color-enlaces: #5d4e60;
+    --color-enlaces-hover: #28c709;
+    --color-etiquetas: #e2f0cb;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    padding-top: 120px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.envio {
+    background-color: var(--color-cta-text);
+    display: flex;
+    color: var(--color-card);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    padding: 0 20px;
+    transition: transform 0.3s ease;
+}
+
+.envio.oculto {
+    transform: translateY(-100%);
+}
+
+/* Contenedor Principal de la Barra de Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-barra);
+    padding: 0 2rem;
+    height: 70px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+}
+
+/* Estilos de las listas (Menús) */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1; /* Permite que los bloques izquierdo y derecho ocupen espacio equitativo */
+    flex-wrap: wrap;
+}
+
+.nav-left {
+    justify-content: flex-start;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+/* Enlaces principales */
+.nav-menu a, .nav-logo a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--color-enlaces-hover);
+}
+
+/* Estilo del Logo (Centro) */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid var(--color-texto);
+    color: var(--color-texto);
+    border-radius: 12px;
+    padding: 0.55rem 0.9rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.nav-logo {
+    text-align: center;
+    flex: 0 0 auto; /* Evita que el logo se encoja o crezca de más */
+}
+
+.nav-logo img {
+    height: 60px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.nav-logo a {
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- SISTEMA DESPLEGABLE (DROPDOWN) --- */
+
+/* Contenedor del menú interactivo */
+.dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Flecha indicadora para los desplegables */
+.dropdown-toggle::after {
+    content: ' ▼';
+    font-size: 0.7rem;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* Menú oculto por defecto */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Se despliega justo debajo de la barra */
+    left: 0;
+    background-color: var(--color-barra);
+    min-width: auto;
+    list-style: none;
+    box-shadow: none;
+    border-radius: 0;
+    z-index: 1000;
+    padding: 0.75rem;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Ajuste fino para el menú desplegable de la derecha (para que no se corte en la pantalla) */
+.nav-right .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+/* Enlaces de los submenús */
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    border: none;
+    border-bottom: none;
+    background: transparent;
+}
+
+.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(0,0,0,0.08);
+    color: var(--color-enlaces-hover);
+}
+
+/* Mostrar el menú al pasar el cursor (Hover) */
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+.slider-contenedor {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 120px); /* Ajusta al alto visible debajo de la barra fija */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Duración de la transición */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    object-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Efecto de desvanecimiento */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4 }
+    to { opacity: 1 }
+}
+
+.gallery-section {
+    padding: 2rem 20px 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-texto);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.product-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--color-cta);
+    color: var(--color-cta-text);
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 99px;
+    z-index: 10;
+    letter-spacing: 0.02em;
+}
+
+/* Header fijado dinámicamente: empieza debajo de .envio y sube al hacer scroll */
+header {
+    position: fixed;
+    top: 40px; /* misma altura que .envio para quedar justo debajo */
+    left: 0;
+    width: 100%;
+    z-index: 150;
+    transition: top 0.25s ease;
+}
+
+/* Cuando el header sube al tope, la clase inline cambiará el top a 0 (manejado por script.js) */
+
+/* Ajuste visual cuando la barra queda fija arriba */
+.navbar--fixed {
+    position: relative; /* la estructura interna se mantiene */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.navbar.nav-open .nav-menu {
+    display: flex;
+}
+
+/* Estilos generales de la sección */
+.scroll-section {
+  padding: 100px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Evita barras de desplazamiento horizontales */
+}
+
+.container1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+}
+
+/* Estado inicial: Elementos invisibles */
+.reveal-img, .reveal-text {
+  opacity: 0;
+  transition: all 1s ease-out; /* Duración y tipo de animación */
+}
+
+/* Estados de desplazamiento iniciales */
+.reveal-img {
+  transform: translateX(-100px); /* Oculta a la izquierda */
+  flex: 1;
+  max-width: 50%;
+  height: 80vh;
+}
+
+.reveal-text {
+  transform: translateX(100px); /* Oculta a la derecha */
+  flex: 1;
+  font-size: 2.5rem;
+}
+
+/* Estado final: Elementos visibles en su lugar (Agregado por JS) */
+.reveal-img.active,
+.reveal-text.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Adaptable a móviles */
+@media (max-width: 980px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    background: var(--color-barra);
+    border-radius: 16px;
+  }
+
+  .navbar.nav-open .nav-menu {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo {
+    order: 2;
+  }
+
+  .nav-left,
+  .nav-right {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-menu a,
+  .dropdown-toggle {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.9);
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    white-space: normal;
+    padding-left: 1rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+    background: transparent;
+  }
+
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 140px;
+  }
+
+  .navbar {
+    align-items: stretch;
+    height: auto;
+  }
+
+  .slider-contenedor {
+    height: 55vh;
+  }
+
+  .product-card img {
+    height: 280px;
+  }
+
+  .gallery-section {
+    padding: 1.5rem 16px 3rem;
+  }
+
+  .container1 {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .reveal-img,
+  .reveal-text {
+    max-width: 100%;
+  }
+
+  .reveal-img {
+    height: auto;
+    max-height: 320px;
+  }
+
+  .reveal-text {
+    font-size: 1.5rem;
+  }
+
+  .comentarios {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .whatsapp-float {
+    right: 16px;
+    left: auto;
+    width: auto;
+    min-width: auto;
+    padding: 12px 16px;
+  }
+}
+
+#faq {
+    padding: 80px 0;
+    background-color: var(--color-fondo);
+}
+
+#faq h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--color-texto);
+}
+
+.faq-item {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+.faq-item h3 {
+    color: var(--color-texto);
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+    display: none;
+    margin-top: 0.5rem;
+}
+
+.comentarios {
+    padding: 50px 0;
+    background-color: #ffffff;
+    text-align: center;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+.comentarios h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.comentario {
+    background: #f9fbff;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin: 0 auto 18px;
+    max-width: 760px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.06);
+}
+
+.comentario p {
+    margin: 0.5rem 0;
+    color: #4c5867;
+    line-height: 1.7;
+}
+
+.footer-content {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 20px 24px;
+}
+
+.footer-section {
+    flex: 1 1 220px;
+    min-width: 220px;
+}
+
+.footer-section h3 {
+    margin-bottom: 16px;
+    color: #2c3e50;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+.footer-section a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.newsletter-form input {
+    flex: 1 1 180px;
+    min-width: 180px;
+    padding: 12px 14px;
+    border: 1px solid #d6d6d6;
+    border-radius: 12px;
+    font-size: 0.95rem;
+}
+
+.newsletter-form button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    background: #2c3e50;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.footer-bottom {
+    padding: 20px 20px 40px;
+    text-align: center;
+    color: #555555;
+    font-size: 0.95rem;
+    background: #eff4f8;
+}
+
+.footer-bottom a {
+    color: #2c3e50;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 0.5rem 0.5rem;
+    background-color: var(--color-cta);
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.social-link:hover {
+    background-color: #07304b;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    min-width: 160px;
+    padding: 14px 18px;
+    background: #25d366;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 18px 30px rgba(37, 211, 102, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 2500;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-4px);
+    background-color: rgba(0, 0, 0, 0.733);
+}
+
+#carrito-panel {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2000;
+    padding: 20px;
+}
+
