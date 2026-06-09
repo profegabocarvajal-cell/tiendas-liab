@@ -15,21 +15,16 @@ let indiceActual = 0;
 const slides = document.querySelectorAll('.slide');
 
 function mostrarSiguienteSlide() {
-    // Oculta la imagen actual
+    if (!slides.length) return;
     slides[indiceActual].classList.remove('active');
-    
-    // Calcula el índice de la siguiente imagen
     indiceActual = (indiceActual + 1) % slides.length;
-    
-    // Muestra la siguiente imagen
     slides[indiceActual].classList.add('active');
 }
 
-// Cambia de imagen cada 3000ms (3 segundos)
-setInterval(mostrarSiguienteSlide, 3000);
-
-// Muestra la primera imagen al cargar la página
-slides[indiceActual].classList.add('active');
+if (slides.length) {
+    setInterval(mostrarSiguienteSlide, 3000);
+    slides[indiceActual].classList.add('active');
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const observerOptions = {
@@ -84,12 +79,30 @@ document.querySelectorAll('.faq-item h3').forEach(question => {
 });
 
 const CART_KEY = 'miTiendaCarrito';
-const WHATSAPP_NUMBER = '+584140216722'; // Cambia este número al número de WhatsApp de tu tienda
+const WHATSAPP_NUMBER = '+524433717845';
 let carrito = cargarCarrito();
 
 document.addEventListener('DOMContentLoaded', () => {
     actualizarCarrito();
     actualizarContadorCarrito();
+
+    const colorInput = document.getElementById('color-preferencia-input');
+    const colorHidden = document.getElementById('color-preferencia');
+    if (colorInput && colorHidden) {
+        colorInput.addEventListener('input', () => {
+            colorHidden.value = colorInput.value;
+        });
+    }
+
+    const archivoInput = document.getElementById('peticion-imagen');
+    const notaArchivo = document.getElementById('archivo-seleccionado');
+    if (archivoInput && notaArchivo) {
+        archivoInput.addEventListener('change', () => {
+            notaArchivo.textContent = archivoInput.files && archivoInput.files[0]
+                ? `Archivo seleccionado: ${archivoInput.files[0].name}`
+                : 'Ningún archivo seleccionado.';
+        });
+    }
 });
 
 function cargarCarrito() {
@@ -188,6 +201,51 @@ function actualizarContadorCarrito() {
     document.querySelectorAll('#cart-count').forEach(el => {
         el.textContent = `(${count})`;
     });
+}
+
+function generarReciboPersonalizado(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombre-portada')?.value.trim();
+    const color = document.getElementById('color-preferencia')?.value || 'No especificado';
+    const divisiones = document.getElementById('tipo-divisiones')?.value || 'No especificado';
+    const portada = document.getElementById('tipo-portada')?.value || 'No especificado';
+    const empastado = document.getElementById('tipo-empastado')?.value || 'No especificado';
+    const frase = document.getElementById('frase-portada')?.value.trim();
+    const detalle = document.getElementById('detalle-extra')?.value.trim() || 'Ninguno';
+
+    if (!nombre || !frase) {
+        alert('Por favor completa el nombre de portada y la frase deseada.');
+        return;
+    }
+
+    const mensaje = `*Pedido personalizado de agenda*\n\n` +
+        `1. Nombre de portada: ${nombre}\n` +
+        `2. Color preferido: ${color}\n` +
+        `3. Divisiones: ${divisiones}\n` +
+        `4. Tipo de portada: ${portada}\n` +
+        `5. Tipo de empastado: ${empastado}\n` +
+        `6. Frase: ${frase}\n` +
+        `7. Otro detalle: ${detalle}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
+function enviarPeticionEspecial(event) {
+    event.preventDefault();
+
+    const peticion = document.getElementById('peticion-texto')?.value.trim();
+    const archivo = document.getElementById('peticion-imagen')?.files?.[0];
+
+    if (!peticion) {
+        alert('Escribe tu petición particular para poder enviarla.');
+        return;
+    }
+
+    const detalleArchivo = archivo ? `\n\nImagen de referencia: ${archivo.name}` : '\n\nSin imagen adjunta.';
+    const mensaje = `*Petición especial para agenda*\n\n${peticion}${detalleArchivo}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
 function generarRecibo() {
