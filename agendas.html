@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Liab-Agendas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="imagen/logo tienda.jpeg">
+</head>
+<body>
+
+    <section class="envio">
+        <h5><u>Tu lo sueñas, nosotros lo creamos</u></h5>
+    </section>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu nav-left">
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Productos</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="agendas.html">Agenda</a></li>
+                        <li><a href="">Tazas</a></li>
+                        <li><a href="">Bolsos  tipo totter</a></li>
+                        <li><a href="">Sobres</a></li>
+                        <li><a href="">Playeras</a></li>
+                        <li><a href="">Rompecabezas</a></li>
+                        <li><a href="">Termos</a></li>
+                        <li><a href="">Llaveros</a></li>
+                        <li><a href="">folders</a></li>
+                        <li><a href="">Producto</a></li>
+                        <li><a href="">Entres Otras cosas</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Como funciona</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Preguntas frecuentes</a></li>
+                        <li><a href="">Cómo comprar</a></li>
+                        <li><a href="">Productos</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Contacto</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Productos</a></li>
+                        <li><a href="">Redes sociales</a></li>
+                        <li><a href="">Contactanos</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+            <div class="nav-logo">
+                <a href="index.html"><img src="imagen/logo tienda.jpeg" alt=""></a>
+            </div>
+
+            <ul class="nav-menu nav-right">
+                <li class="dropdown">
+                    <a href="#carrito" onclick="mostrarCarrito()"><i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count" class="cart-count">0</span></a></li>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Metodos de Pago</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Paypal</a></li>
+                        <li><a href="">Tarjeta de credito</a></li>
+                        <li><a href="">transferencia bancaria</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+            <div class="hero-content">
+                <p>La diseñamos por ti</p>
+                <h1>Somos especialistas en el diseño personalizado</h1>
+                <p>Nuestras agendas están diseñadas para adaptarse a tus necesidades y estilo.</p>
+                <button type="button" onclick="document.getElementById('diseñalo-a-tu-manera').scrollIntoView({behavior:'smooth'})">Ver más opciones</button>
+            </div>
+            <div class="hero-image">
+                <img src="imagen/portada agendas.jpeg" alt="Portada de agendas">
+            </div>
+    </section>
+    
+    <section class="agenda-custom-section" id="diseñalo-a-tu-manera">
+        <div class="agenda-layout">
+            <article class="agenda-showcase-card">
+                <div class="section-heading">
+                    <p class="eyebrow">Elige tu estilo</p>
+                    <h2>Diseños para agendas personalizadas</h2>
+                    <p>Explora dos vistas por agenda: exterior e interior. Pasa el cursor para ver el cambio y agrégala al carrito.</p>
+                </div>
+
+                <div class="agenda-cards-grid">
+                    <article class="agenda-card">
+                        <div class="agenda-visual">
+                            <img class="agenda-front" src="imagen/agen1.jpeg" alt="Diseño exterior de agenda">
+                            <img class="agenda-back" src="imagen/t1.jpeg" alt="Diseño interior de agenda">
+                        </div>
+                        <div class="agenda-card-body">
+                            <span class="agenda-tag">$350</span>
+                            <h3>Agenda clásica exterior</h3>
+                            <p>Portada sofisticada y diseño interior minimalista para uso diario.</p>
+                            <button type="button" onclick="agregarAlCarrito('Agenda clásica exterior', 35)">Agregar al carrito</button>
+                        </div>
+                    </article>
+
+                    <article class="agenda-card">
+                        <div class="agenda-visual">
+                            <img class="agenda-front" src="imagen/agen 2.jpeg" alt="Diseño exterior de agenda premium">
+                            <img class="agenda-back" src="imagen/t2.jpeg" alt="Diseño interior de agenda premium">
+                        </div>
+                        <div class="agenda-card-body">
+                            <span class="agenda-tag">$420</span>
+                            <h3>Agenda premium</h3>
+                            <p>Acabado elegante con interior creativo ideal para presentaciones y uso profesional.</p>
+                            <button type="button" onclick="agregarAlCarrito('Agenda premium', 42)">Agregar al carrito</button>
+                        </div>
+                    </article>
+                    <article class="agenda-card">
+                        <div class="agenda-visual">
+                            <img class="agenda-front" src="imagen/agen 3.jpeg" alt="Diseño exterior de agenda premium">
+                            <img class="agenda-back" src="imagen/t3.jpeg" alt="Diseño interior de agenda premium">
+                        </div>
+                        <div class="agenda-card-body">
+                            <span class="agenda-tag">$50</span>
+                            <h3>Agenda para ti</h3>
+                            <p>Acabado elegante con interior creativo ideal para presentaciones y uso profesional.</p>
+                            <button type="button" onclick="agregarAlCarrito('Agenda para ti', 5)">Agregar al carrito</button>
+                        </div>
+                    </article>
+                    <article class="agenda-card">
+                        <div class="agenda-visual">
+                            <img class="agenda-front" src="imagen/ag4.jpeg" alt="Diseño exterior de agenda premium">
+                            <img class="agenda-back" src="imagen/t5.jpeg" alt="Diseño interior de agenda premium">
+                        </div>
+                        <div class="agenda-card-body">
+                            <span class="agenda-tag">$15</span>
+                            <h3>Agenda Regular</h3>
+                            <p>Acabado elegante con interior creativo ideal para presentaciones y uso profesional.</p>
+                            <button type="button" onclick="agregarAlCarrito('Agenda regular', 15)">Agregar al carrito</button>
+                        </div>
+                    </article>
+                </div>
+            </article>
+
+            <aside class="agenda-form-card">
+                <div class="section-heading">
+                    <p class="eyebrow">Personaliza tu pedido</p>
+                    <h2>Diseñalo a tu manera</h2>
+                    <p>Completa tus preferencias y te generamos un recibo para enviarlo por WhatsApp.</p>
+                </div>
+
+                <form id="agenda-personalizada-form" class="custom-form" onsubmit="generarReciboPersonalizado(event)">
+                    <label>1. Nombre de portada
+                        <input type="text" id="nombre-portada" placeholder="Ej. Agenda de viaje" required>
+                    </label>
+
+                    <label>2. Selecciona el color de tu preferencia</label>
+                    <div class="color-grid" id="color-grid">
+                        <label class="color-picker-card">
+                            <span>Elige un color</span>
+                            <input type="color" id="color-preferencia-input" value="#F7C948" aria-label="Selector de color">
+                        </label>
+                    </div>
+                    <p class="color-help">El color elegido se agregará automáticamente al recibo de WhatsApp.</p>
+                    <input type="hidden" id="color-preferencia" value="#F7C948">
+
+                    <label>3. ¿Cómo serían las divisiones?
+                        <select id="tipo-divisiones" required>
+                            <option value="Todo con líneas">Todo con líneas</option>
+                            <option value="Mitad con líneas y mitad con notas">Mitad con líneas y mitad con notas</option>
+                            <option value="Todo con notas">Todo con notas</option>
+                        </select>
+                    </label>
+
+                    <label>4. Tipo de portada
+                        <select id="tipo-portada" required>
+                            <option value="Mate">Mate</option>
+                            <option value="Brillante">Brillante</option>
+                        </select>
+                    </label>
+
+                    <label>5. Tipo de empastado
+                        <select id="tipo-empastado" required>
+                            <option value="Tapa dura">Tapa dura</option>
+                            <option value="Tapa brillante">Tapa brillante</option>
+                        </select>
+                    </label>
+
+                    <label>6. Coloca una frase en particular
+                        <input type="text" id="frase-portada" placeholder="Ej. Siempre en movimiento" required>
+                    </label>
+
+                    <label>7. ¿Deseas algún otro detalle?
+                        <textarea id="detalle-extra" rows="3" placeholder="Escribe cualquier detalle adicional que quieras"></textarea>
+                    </label>
+
+                    <button type="submit" class="submit-btn">Enviar recibo por WhatsApp</button>
+                </form>
+            </aside>
+        </div>
+    </section>
+
+    <section class="carrusel">
+            <h2>Más diseños para ti</h2>
+            <div class="carrusel-container">
+                <div class="carrusel-track">
+                    <div class="carrusel-group">
+                        <img src="imagen/ag1.jpeg" alt="Marca 1">
+                        <img src="imagen/ag2.jpeg" alt="Marca 2">
+                        <img src="imagen/ag4.jpeg" alt="Marca 3">
+                        <img src="imagen/ag7.jpeg" alt="marca 4">
+                        <img src="imagen/aga10.jpeg" alt="marca 5">
+                        <img src="imagen/agen 2.jpeg" alt="marca 6">
+                        <img src="imagen/agen 3.jpeg" alt="marca 7">
+                        <img src="imagen/agen1.jpeg" alt="marca 8">
+                        <img src="imagen/portada agendas.jpeg" alt="marca 9">
+                    </div>
+                    <div class="carrusel-group" aria-hidden="true">
+                        <img src="imagen/ag1.jpeg" alt="Marca 1 copia">
+                        <img src="imagen/ag2.jpeg" alt="Marca 2 copia">
+                        <img src="imagen/ag4.jpeg" alt="Marca 3 copia">
+                        <img src="imagen/ag7.jpeg" alt="marca 4 copia">
+                        <img src="imagen/aga10.jpeg" alt="marca 5 copia">
+                        <img src="imagen/agen 2.jpeg" alt="marca 6 copia">
+                        <img src="imagen/agen 3.jpeg" alt="marca 7 copia">
+                        <img src="imagen/agen1.jpeg" alt="marca 8 copia">
+                        <img src="imagen/portada agendas.jpeg" alt="marca 9 copia">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="special-request-section">
+        <div class="special-request-card">
+            <p class="eyebrow">Haz tu solicitud</p>
+            <h2>Quieres algo diferente</h2>
+            <p>Describe tu idea y adjunta una imagen de referencia. El mensaje se enviará al mismo número de WhatsApp para cotizar tu diseño.</p>
+
+            <form id="peticion-especial-form" class="custom-form" onsubmit="enviarPeticionEspecial(event)">
+                <label>Cuéntanos tu petición particular
+                    <textarea id="peticion-texto" rows="5" placeholder="Ej. Quiero una agenda con tema floral, con espacio para notas y una portada con letras doradas" required></textarea>
+                </label>
+
+                <label>Sube una imagen de referencia
+                    <input type="file" id="peticion-imagen" accept="image/*">
+                </label>
+                <p id="archivo-seleccionado" class="file-note">Ningún archivo seleccionado.</p>
+
+                <button type="submit" class="submit-btn">Enviar petición por WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="professional-footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tiendas Liab</h3>
+                <p>Todo en estamapados</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Tiktok</a>
+                    <a href="https://www.instagram.com/liab_sublipaper?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="">Inicio</a></li>
+                    <li><a href="#promociones">Productos</a></li>
+                    <li><a href="#damas">Cómo funciona</a></li>
+                    <li><a href="#caballeros">Métodos de Pago</a></li>
+                    <li><a href="#carrito" onclick="mostrarCarrito()"><i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count" class="cart-count">0</span></a></li>
+                    <li><a href="#footer">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📞 +52(4433717845)</li>
+                    <li>✉️ @gmail.com</li>
+                    <li>📍 Queretaro</li>
+                    <li>🕒 Lun-Vie: 9AM-6PM</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Suscríbete para recibir ofertas exclusivas</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026. todos los derechos reservados | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+        </div>
+    </footer>
+
+    <div id="carrito-panel">
+        <div class="carrito-content">
+            <button class="close-carrito" onclick="cerrarCarrito()">×</button>
+            <h2>Carrito de Compras</h2>
+            <div id="carrito-items"></div>
+            <div class="carrito-footer">
+                <label for="direccion-envio">Dirección de envío</label>
+                <textarea id="direccion-envio" placeholder="Ingresa tu dirección"></textarea>
+                <div class="carrito-total" id="carrito-total">$0.00</div>
+                <div class="carrito-actions">
+                    <button type="button" onclick="generarRecibo()">Enviar por WhatsApp</button>
+                    <button type="button" onclick="vaciarCarrito()">Vaciar carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/524433717845?text=Hola%20quiero%20hacer%20una%20compra" class="whatsapp-float" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
