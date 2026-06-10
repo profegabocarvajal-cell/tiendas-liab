@@ -231,6 +231,26 @@ function generarReciboPersonalizado(event) {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+function generarReciboPlayera(event) {
+    event.preventDefault();
+
+    const talla = document.getElementById('talla-playera')?.value || 'No especificado';
+    const detalles = document.getElementById('detalles-playera')?.value.trim();
+    const extra = document.getElementById('detalle-extra-playera')?.value.trim() || 'Ninguno';
+
+    if (!detalles) {
+        alert('Escribe los detalles que quieres que tenga la playera.');
+        return;
+    }
+
+    const mensaje = `*Pedido personalizado de playera*\n\n` +
+        `*Talla:* ${talla}\n` +
+        `*Detalles deseados:* ${detalles}\n` +
+        `*Detalles adicionales:* ${extra}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
 function enviarPeticionEspecial(event) {
     event.preventDefault();
 
@@ -274,5 +294,7 @@ function generarRecibo() {
 
     window.open(url, '_blank');
 }
+
+
 
 
