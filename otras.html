@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Liab-Otras</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="icon" type="image/x-icon" href="imagen/logo tienda.jpeg">
+</head>
+<body>
+    <section class="envio">
+        <h5><u>Tu lo sueñas, nosotros lo creamos</u></h5>
+    </section>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu nav-left">
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Productos</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="agendas.html">Agenda</a></li>
+                        <li><a href="tazas.html">Tazas y Termos</a></li>
+                        <li><a href="bolsos.html">Bolsos  tipo totter</a></li>
+                        <li><a href="playeras.html">Playeras</a></li>
+                        <li><a href="otras.html">Entres Otras cosas</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Como funciona</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#faq">Preguntas frecuentes</a></li>
+                        <li><a href="">Cómo comprar</a></li>
+                        <li><a href="">Productos</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Contacto</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Productos</a></li>
+                        <li><a href="">Redes sociales</a></li>
+                        <li><a href="">Contactanos</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+            <div class="nav-logo">
+                <a href="index.html"><img src="imagen/logo tienda.jpeg" alt=""></a>
+            </div>
+
+            <ul class="nav-menu nav-right">
+                <li class="dropdown">
+                    <a href="#carrito" onclick="mostrarCarrito()"><i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count" class="cart-count">0</span></a></li>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Metodos de Pago</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Paypal</a></li>
+                        <li><a href="">Tarjeta de credito</a></li>
+                        <li><a href="">transferencia bancaria</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+            <div class="hero-content">
+                <p>¡Lo que imaginas, nosotros lo hacemos realidad!</p>
+                <h1>¡Haz que tus ideas se materialicen!</h1>
+                <p> Realizamos todo tipo de personalizaciones. ponte en contacto con nosotros.</p>
+                <button type="button" onclick="document.getElementById('diseñalo-a-tu-manera').scrollIntoView({behavior:'smooth'})">Ver más opciones</button>
+            </div>
+            <div class="hero-image">
+                <img src="imagen/logo tienda.jpeg" alt="Portada">
+            </div>
+    </section>
+    
+    <section class="carrusel">
+            <h2>Nuestras Productos</h2>
+            <div class="carrusel-container">
+                <div class="carrusel-track">
+                    <div>Agendas</div>
+                    <div>Playeras</div>
+                    <div>Tazas de vidrio</div>
+                    <div>Termos</div>
+                    <div>Bolsos tipo totter</div>
+                    <div>Tazas de ceramica</div>
+                    <div>Termos de café</div>
+                    <div>Termos para agua</div>
+                    <div>Folder</div>
+                    <div>Llaveros</div>
+                    <div>Relojes</div>
+                    <div>Rompecabezas</div>
+                    <div>Entre otras</div>
+                </div>
+            </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Algunas de las cosas que tenemos para ti</h2>
+            <div class="gallery-grid">
+                <img src="imagen/rompe 1.jpeg" alt="bolsa 1">
+                <img src="imagen/rompe 2.jpeg" alt="bolsa 2">
+                <img src="imagen/sobre 1.jpeg" alt="bolsa 3">
+                <img src="imagen/sobre 2.jpeg" alt="bolsa 4">
+                <img src="imagen/bolsa 1.jpeg" alt="bolsa 5">
+                <img src="imagen/taza 8.jpeg" alt="bolsa 6">
+            </div>
+        </div>
+    </section>
+
+    <section class="pasos">
+        <div class="container">
+            <h2>Pasos para hacer tu pedido</h2>
+            <div class="pasos-grid">
+                <article class="pasos-card">
+                    <span class="paso-number">1</span>
+                    <div class="pasos-card-content">
+                        <h3>Revisa nuestros productos</h3>
+                        <p>Explora nuestra variedad de productos para encontrar lo que deseas.</p>
+                    </div>
+                </article>
+                <article class="pasos-card">
+                    <span class="paso-number">2</span>
+                    <div class="pasos-card-content">
+                        <h3>Escribemos al whatsapp</h3>
+                        <p>Contacta con nosotros para mayor información</p>
+                    </div>
+                </article>
+                <article class="pasos-card">
+                    <span class="paso-number">3</span>
+                    <div class="pasos-card-content">
+                        <h3>Si que respondemos</h3>
+                        <p>Te respondemos lo antes posible con la información que necesitas.</p>
+                    </div>
+                </article>
+                <article class="pasos-card">
+                    <span class="paso-number">4</span>
+                    <div class="pasos-card-content">
+                        <h3>Haz tus ideas una realidad</h3>
+                        <p>Trabaja con nuestro equipo para dar forma a tus ideas</p>
+                    </div>
+                </article>
+                
+            </div>
+        </div>
+    </section>
+
+
+    
+</body>
+</html>
