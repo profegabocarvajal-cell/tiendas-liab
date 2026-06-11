@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tazas y termos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="icon" type="image/x-icon" href="imagen/logo tienda.jpeg">
+</head>
+<body>
+    <section class="envio">
+        <h5><u>Tu lo sueñas, nosotros lo creamos</u></h5>
+    </section>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-menu nav-left">
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Productos</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="agendas.html">Agenda</a></li>
+                        <li><a href="tazas.html">Tazas y Termos</a></li>
+                        <li><a href="bolsos.html">Bolsos  tipo totter</a></li>
+                        <li><a href="playeras.html">Playeras</a></li>
+                        <li><a href="otras.html">Entres Otras cosas</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Como funciona</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#faq">Preguntas frecuentes</a></li>
+                        <li><a href="">Cómo comprar</a></li>
+                        <li><a href="">Productos</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Contacto</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Productos</a></li>
+                        <li><a href="">Redes sociales</a></li>
+                        <li><a href="">Contactanos</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+            <div class="nav-logo">
+                <a href="index.html"><img src="imagen/logo tienda.jpeg" alt=""></a>
+            </div>
+
+            <ul class="nav-menu nav-right">
+                <li class="dropdown">
+                    <a href="#carrito" onclick="mostrarCarrito()"><i class="fas fa-shopping-cart"></i> Carrito <span id="cart-count" class="cart-count">0</span></a></li>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">Metodos de Pago</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Paypal</a></li>
+                        <li><a href="">Tarjeta de credito</a></li>
+                        <li><a href="">transferencia bancaria</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero" id="inicio">
+            <div class="hero-content">
+                <p>Tu ropa habla por ti. ¿Qué quieres decir hoy?</p>
+                <h1>Somos especialistas en el diseño personalizado</h1>
+                <p> Creamos diseños únicos que van con tu personalidad, tus gustos y tu mood. Desde lo más geek hasta lo más aesthetic, tenemos el estampado perfecto para ti.</p>
+                <button type="button" onclick="document.getElementById('diseñalo-a-tu-manera').scrollIntoView({behavior:'smooth'})">Ver más opciones</button>
+            </div>
+            <div class="hero-image">
+                <img src="imagen/taza 1.jpeg" alt="Portada">
+            </div>
+    </section>
+
+    <section class="carrusel">
+            <h2>Mira lo que tenemos para ti</h2>
+            <div class="carrusel-container">
+                <div class="carrusel-track">
+                    <div class="carrusel-group">
+                        <img src="imagen/taza 1.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 2.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 3.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 4.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 5.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 6.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 7.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 8.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 9.jpeg" alt="Marca 1">
+                        <img src="imagen/termo 1.jpeg" alt="Marca 1">
+                        <img src="imagen/termo 2.jpeg" alt="Marca 1">
+                                              
+                    </div>
+                    <div class="carrusel-group" aria-hidden="true">
+                        <img src="imagen/taza 1.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 2.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 3.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 4.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 5.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 6.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 7.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 8.jpeg" alt="Marca 1">
+                        <img src="imagen/taza 9.jpeg" alt="Marca 1">
+                        <img src="imagen/termo 1.jpeg" alt="Marca 1">
+                        <img src="imagen/termo 2.jpeg" alt="Marca 1">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="taza-custom-section" id="diseñalo-a-tu-manera">
+        <div class="taza-layout">
+            <article class="taza-card">
+                <div class="section-heading">
+                    <p class="eyebrow">Diseños disponibles</p>
+                    <h2>Elige uno de nuestros diseños</h2>
+                    <p>Selecciona cualquiera de los 5 diseños de referencia y luego completa el formulario para enviarlo por WhatsApp.</p>
+                </div>
+
+                <div class="design-grid">
+                    <article class="design-card active" data-design="Diseño 1 - Minimalista">
+                        <img src="imagen/dis 1.jpg" alt="Diseño 1 Minimalista">
+                        <h3>Diseño 1</h3>
+                        <p>Minimalista y moderno.</p>
+                        <button type="button" class="select-design-btn">Seleccionar diseño</button>
+                    </article>
+                    <article class="design-card" data-design="Diseño 2 - Floral">
+                        <img src="imagen/dis 2.jpeg" alt="Diseño 2 Floral">
+                        <h3>Diseño 2</h3>
+                        <p>Estilo floral y delicado.</p>
+                        <button type="button" class="select-design-btn">Seleccionar diseño</button>
+                    </article>
+                    <article class="design-card" data-design="Diseño 3 - Vintage">
+                        <img src="imagen/dis 3.jpeg" alt="Diseño 3 Vintage">
+                        <h3>Diseño 3</h3>
+                        <p>Inspirado en estética vintage.</p>
+                        <button type="button" class="select-design-btn">Seleccionar diseño</button>
+                    </article>
+                    <article class="design-card" data-design="Diseño 4 - Colorido">
+                        <img src="imagen/dis 4.jpeg" alt="Diseño 4 Colorido">
+                        <h3>Diseño 4</h3>
+                        <p>Vibrante y alegre para cualquier ocasión.</p>
+                        <button type="button" class="select-design-btn">Seleccionar diseño</button>
+                    </article>
+                    <article class="design-card" data-design="Diseño 5 - Elegante">
+                        <img src="imagen/dis 5.jpeg" alt="Diseño 5 Elegante">
+                        <h3>Diseño 5</h3>
+                        <p>Elegante con estilo premium.</p>
+                        <button type="button" class="select-design-btn">Seleccionar diseño</button>
+                    </article>
+                </div>
+            </article>
+
+            <aside class="taza-card">
+                <div class="section-heading">
+                    <p class="eyebrow">Recibo por WhatsApp</p>
+                    <h2>Personaliza tu taza o termo</h2>
+                    <p>Elige el diseño, indica la cantidad, describe el tipo de diseño y adjunta una imagen de referencia para que te enviemos el recibo.</p>
+                </div>
+
+                <form id="taza-personalizada-form" class="custom-form" onsubmit="generarReciboTaza(event)">
+                    <label>Diseño seleccionado
+                        <input type="text" id="diseño-seleccionado" value="Diseño 1 - Minimalista" readonly>
+                    </label>
+
+                    <label>Tipo de diseño que quieres
+                        <input type="text" id="tipo-diseno-taza" placeholder="Ej. Frase motivacional, logo, ilustración" required>
+                    </label>
+
+                    <label>Cantidad
+                        <input type="number" id="cantidad-taza" min="1" value="1" required>
+                    </label>
+
+                    <label>Imagen de referencia
+                        <input type="file" id="imagen-referencia-taza" accept="image/*">
+                    </label>
+                    <p id="archivo-seleccionado-taza" class="file-note">Ningún archivo seleccionado.</p>
+
+                    <button type="submit" class="submit-btn">Enviar recibo por WhatsApp</button>
+                </form>
+            </aside>
+        </div>
+    </section>
+
+    <footer class="professional-footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tiendas Liab</h3>
+                <p>Todo en estamapados</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Tiktok</a>
+                    <a href="https://www.instagram.com/liab_sublipaper?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#diseñalo-a-tu-manera">Diseños</a></li>
+                    <li><a href="#footer">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📞 +52(4433717845)</li>
+                    <li>✉️ @gmail.com</li>
+                    <li>📍 Queretaro</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/524433717845?text=Hola%20quiero%20hacer%20una%20compra" class="whatsapp-float" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

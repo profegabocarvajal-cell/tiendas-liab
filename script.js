@@ -86,6 +86,29 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarCarrito();
     actualizarContadorCarrito();
 
+    document.querySelectorAll('.select-design-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.design-card');
+            if (!card) return;
+
+            document.querySelectorAll('.design-card').forEach(item => item.classList.remove('active'));
+            card.classList.add('active');
+            const selected = card.getAttribute('data-design') || 'Diseño personalizado';
+            const field = document.getElementById('diseño-seleccionado');
+            if (field) field.value = selected;
+        });
+    });
+
+    const archivoInputTaza = document.getElementById('imagen-referencia-taza');
+    const notaArchivoTaza = document.getElementById('archivo-seleccionado-taza');
+    if (archivoInputTaza && notaArchivoTaza) {
+        archivoInputTaza.addEventListener('change', () => {
+            notaArchivoTaza.textContent = archivoInputTaza.files && archivoInputTaza.files[0]
+                ? `Archivo seleccionado: ${archivoInputTaza.files[0].name}`
+                : 'Ningún archivo seleccionado.';
+        });
+    }
+
     const colorInput = document.getElementById('color-preferencia-input');
     const colorHidden = document.getElementById('color-preferencia');
     if (colorInput && colorHidden) {
@@ -94,12 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const archivoInput = document.getElementById('peticion-imagen');
-    const notaArchivo = document.getElementById('archivo-seleccionado');
-    if (archivoInput && notaArchivo) {
-        archivoInput.addEventListener('change', () => {
-            notaArchivo.textContent = archivoInput.files && archivoInput.files[0]
-                ? `Archivo seleccionado: ${archivoInput.files[0].name}`
+    const archivoInputPeticion = document.getElementById('peticion-imagen');
+    const notaArchivoPeticion = document.getElementById('archivo-seleccionado');
+    if (archivoInputPeticion && notaArchivoPeticion) {
+        archivoInputPeticion.addEventListener('change', () => {
+            notaArchivoPeticion.textContent = archivoInputPeticion.files && archivoInputPeticion.files[0]
+                ? `Archivo seleccionado: ${archivoInputPeticion.files[0].name}`
                 : 'Ningún archivo seleccionado.';
         });
     }
@@ -231,6 +254,31 @@ function generarReciboPersonalizado(event) {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+function generarReciboTaza(event) {
+    event.preventDefault();
+
+    const diseño = document.getElementById('diseño-seleccionado')?.value.trim()
+        || document.querySelector('.design-card.active')?.getAttribute('data-design')
+        || 'No especificado';
+    const tipo = document.getElementById('tipo-diseno-taza')?.value.trim();
+    const cantidad = document.getElementById('cantidad-taza')?.value || '1';
+    const archivo = document.getElementById('imagen-referencia-taza')?.files?.[0];
+
+    if (!tipo) {
+        alert('Escribe el tipo de diseño que quieres para tu taza o termo.');
+        return;
+    }
+
+    const detalleArchivo = archivo ? `\n\nImagen de referencia: ${archivo.name}` : '\n\nSin imagen adjunta.';
+    const mensaje = `*Pedido personalizado de taza/termo*\n\n` +
+        `*Diseño seleccionado:* ${diseño || 'No especificado'}\n` +
+        `*Tipo de diseño:* ${tipo}\n` +
+        `*Cantidad:* ${cantidad}\n` +
+        `*Referencia visual:* ${detalleArchivo}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
 function generarReciboPlayera(event) {
     event.preventDefault();
 
@@ -246,6 +294,30 @@ function generarReciboPlayera(event) {
     const mensaje = `*Pedido personalizado de playera*\n\n` +
         `*Talla:* ${talla}\n` +
         `*Detalles deseados:* ${detalles}\n` +
+        `*Detalles adicionales:* ${extra}`;
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
+function generarReciboBolso(event) {
+    event.preventDefault();
+
+    const cantidad = document.getElementById('cantidad-bolsos')?.value || '1';
+    const descripcion = document.getElementById('descripcion-bolsos')?.value.trim();
+    const tamaño = document.getElementById('tamaño-bolsos')?.value || 'No especificado';
+    const diseño = document.getElementById('diseño-bolsos')?.value.trim();
+    const extra = document.getElementById('detalle-extra-bolsos')?.value.trim() || 'Ninguno';
+
+    if (!descripcion || !diseño) {
+        alert('Escribe la descripción y el diseño que quieres para el bolso.');
+        return;
+    }
+
+    const mensaje = `*Pedido personalizado de bolso*\n\n` +
+        `*Cantidad:* ${cantidad}\n` +
+        `*Descripción del bolso:* ${descripcion}\n` +
+        `*Tamaño:* ${tamaño}\n` +
+        `*Diseño deseado:* ${diseño}\n` +
         `*Detalles adicionales:* ${extra}`;
 
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
